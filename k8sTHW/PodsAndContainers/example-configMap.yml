@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: player-pro-demo
 data:
-  player_lives: 5
+  player_lives: "5"
   properties_file_name: "user-interface.properties"
   
   base.properties:
