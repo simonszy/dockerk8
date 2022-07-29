@@ -9,8 +9,8 @@ spec:
       ports:
         - containerPort: 80
       volumeMounts:
-#        - name: nginx-config-volume
-#          mountPath: /etc/nginx
+        - name: nginx-config-volume
+          mountPath: /etc/nginx
         - name: htpasswd-volume
           mountPath: /etc/nginx/conf
   volumes:
