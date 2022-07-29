@@ -8,15 +8,15 @@ spec:
       image: nginx:1.19.1
       ports:
         - containerPort: 80
-      volumeMounts:
-        - name: nginx-config-volume
-          mountPath: /etc/nginx
-        - name: htpasswd-volume
-          mountPath: /etc/nginx/conf
-  volumes:
-    - name: nginx-config-volume
-      configMap:
-        name: nginx-config-file
-    - name: htpasswd-volume
-      secret:
-        secretName: nginx-htpasswd
+#      volumeMounts:
+#        - name: nginx-config-volume
+#          mountPath: /etc/nginx
+#        - name: htpasswd-volume
+#          mountPath: /etc/nginx/conf
+#  volumes:
+#    - name: nginx-config-volume
+#      configMap:
+#        name: nginx-config-file
+#    - name: htpasswd-volume
+#      secret:
+#        secretName: nginx-htpasswd
