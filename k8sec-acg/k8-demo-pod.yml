@@ -9,5 +9,5 @@ spec:
       image: alpine:3.7
       command:
         - "sh"
-        - "c"
+        - "-c"
         - "sleep 10000"
