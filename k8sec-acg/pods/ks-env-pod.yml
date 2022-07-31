@@ -12,7 +12,7 @@ spec:
       env:
         - valueFrom:
             secretKeyRef:
-              name: ks-secret-env
+              name: ks-secret-config
               key: config.yml
           name: SECRET_CONFIG
   restartPolicy: Never
