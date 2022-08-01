@@ -7,11 +7,13 @@ app.use(express.urlencoded({ extended: true }))
 // Setup MongoDb backing database
 const MongoClient = require('mongodb').MongoClient
 // MongoDB credentials
-const username = encodeURIComponent("uloe_user");
-const password = encodeURIComponent("ILoveTheList");
+//const username = encodeURIComponent("uloe_user");
+//const password = encodeURIComponent("ILoveTheList");
+const username = encodeURIComponent(process.env.MONGODB_USER || "uloe_user");
+const password = encodeURIComponent(process.env.MONGODB_PASSWORD || "ILoveTheList");
 // MongoDB connection info
-const mongoPort = 27017;
-const mongoHost = 'localhost';
+const mongoPort = process.env.MONGODB_PORT || 27017;
+const mongoHost = process.env.MONGODB_HOST || 'localhost';
 // MongoDB connection string
 const mongoURI = `mongodb://${username}:${password}@localhost:27017/uloe`;
 const mongoURISanitized = `mongodb://${username}:****@${mongoHost}:${mongoPort}/uloe`;
