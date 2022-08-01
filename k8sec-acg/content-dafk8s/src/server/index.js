@@ -15,7 +15,8 @@ const password = encodeURIComponent(process.env.MONGODB_PASSWORD || "ILoveTheLis
 const mongoPort = process.env.MONGODB_PORT || 27017;
 const mongoHost = process.env.MONGODB_HOST || 'localhost';
 // MongoDB connection string
-const mongoURI = `mongodb://${username}:${password}@localhost:27017/uloe`;
+//const mongoURI = `mongodb://${username}:${password}@localhost:27017/uloe`;
+const mongoURI = `mongodb://${username}:${password}${mongoHost}:${mongoPort}/uloe`;
 const mongoURISanitized = `mongodb://${username}:****@${mongoHost}:${mongoPort}/uloe`;
 console.log("MongoDB connection string %s", mongoURISanitized);
 
