@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pirate-day-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pirate-day-frontend
+  template:
+    metadata:
+      labels:
+        app: pirate-day-fronted
+    spec:
+      containers:
+        - name: pirate-day
+          image: linuxacademycontent/pirate-day:0.0.2
+          volumeMounts:
+            - mountPath: /usr/src/app/.env
+              subPath: .env
+              readOnly: true
+              name: pirate-config
+      volumes:
+        - name: pirate-config
+          configMap:
+            name: pirate-config
+            items:
+              - key: .env
+                path: .env
+            

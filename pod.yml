@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uloe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uloe
+  template:
+    metadata:
+      labels:
+        app: uloe
+    spec:
+      containers:
+        - name: uloe-server
+          image: simonsatt/uloe-server:0.0.1
+          ports:
+            - name: web
+              containerPort: 3001
+              protocol: TCP
+          env:
+            - name: MONGODB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: uloe-config
+                  key: mongodb.host
+            - name: MONGODB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: uloe-config
+                  key: mongodb.port
+            - name: MONGODB_USER
+              valueFrom:
+                secretKeyRef:
+
